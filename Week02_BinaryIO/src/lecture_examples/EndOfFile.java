@@ -9,64 +9,71 @@ import java.io.IOException;
 public class EndOfFile {
 
 	public static void main(String[] args) {
-
-		//Detecting end of file with FileInput/OutputStream
-		//look for the -1.
-		FileInputStream fis = null;
-
-		try {
-			fis = new FileInputStream("src/files/temp.dat");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		//		try {
-		//			while(true) {
-		//				int nextByte = fis.read();
-		//
-		//				if (nextByte == -1) {
-		//					break;
-		//				}
-		//				
-		//				System.out.println(nextByte);
-		//
-		//			}
-		//		}
-		//		catch(IOException ex) {
-		//
-		//		}
-
-
-		DataInputStream dis = null;
-		try {
-			dis = new DataInputStream(
-					new FileInputStream("src/files/temp.dat"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		try {
-			while(true) {
-				int next2Bytes = dis.readShort();
-
-				if (next2Bytes == -1) {
-					System.out.println("found negative one.");
-				}
-
-				System.out.println(next2Bytes);
-			}
-		}
-		catch(EOFException ex) {
-			System.out.println("End of file detected, exception was caught.");
-		}
-		catch(IOException ex) {
-
-		}
-
-
+		
+		//fileInputStreamEnd();
+		dataInputStreamEnd();
 
 	}
+	
+	//Shows how to end the file read using -1
+	public static void fileInputStreamEnd() {
+		try {
+			FileInputStream fis = new FileInputStream("src/files/temp.dat");
+		
+			int nextValue = 0;
+			
+			while( (nextValue = fis.read()) != -1 ) {
+				System.out.println(nextValue);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void dataInputStreamEnd() {
+		try {
+			DataInputStream dis = new DataInputStream(
+					new FileInputStream("src/files/temp.dat"));
+		
+			try {
+				while(true) {
+					int nextValue = dis.readInt();
+					System.out.println(nextValue);
+				}
+			}
+			catch(EOFException ex) {
+				System.out.println("Reached end of file.");
+			}
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

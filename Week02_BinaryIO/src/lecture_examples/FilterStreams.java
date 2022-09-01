@@ -28,7 +28,8 @@ public class FilterStreams {
 //				System.out.println(dis.read());
 //			}
 			
-			
+			//Reverses the order of the bytes and gives the
+			//incorrect output.
 			System.out.println(dis.readLong());
 			System.out.println(dis.readShort());
 			
