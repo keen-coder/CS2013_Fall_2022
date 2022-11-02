@@ -30,6 +30,8 @@ public class ComparatorTest {
 	
 	//You can use the Comparator to compare two objects of the same type
 	//by calling the compare() method of the comparator.
+	//NOTE: The sort() method for the VideoGameLinkedList class won't look
+	//exactly like this, but the logic of comparing two VideoGames will be similar.
 	public static void mySort(ArrayList<Person> list, 
 			Comparator<Person> comparator) {
 		Person p1 = list.get(0);
