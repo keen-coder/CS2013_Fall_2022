@@ -28,6 +28,15 @@ public class ComparatorTest {
 		Collections.sort(list, new PersonAgeComparator());
 		
 		System.out.println(list);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	//You can use the Comparator to compare two objects of the same type
