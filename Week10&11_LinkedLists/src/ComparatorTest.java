@@ -19,7 +19,9 @@ public class ComparatorTest {
 		list.add(p4);
 		list.add(p5);
 		
-		Collections.sort(list, new PersonNameComparator());
+		PersonNameComparator nameComp = new PersonNameComparator();
+		
+		Collections.sort(list, nameComp);
 		
 		System.out.println(list);
 		
